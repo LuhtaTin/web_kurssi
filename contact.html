@@ -1,16 +1,47 @@
-<nav>
- <ul>
-  <li><a href=
-   "index.html">Etusivu
-  </a></li>
-  <li><a href=
-   "about.html">Tietoja
-  </a></li>
-  <li><a href=
-   "contact.html">Yhteystiedot
-  </a></li>
-  <li><a href=
-   "listing.html">Listing
-  </a></li>
- </ul>
-</nav>
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pohjanpiha Festival - Ota yhteyttä</title>
+    </head>
+    <body>
+        <header>
+            <figure>
+                <img src="images/logo.png" alt="Logo, jossa on teksti Pohjanpiha Festival" width="170" height="80">
+            </figure>
+            <h1>Pohjanpiha Festival</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="listing.html">Esiintyjät</a></li>
+                    <li><a href="about.html">Alue ja esteettömyys</a></li>
+                    <li><a href="contact.html">Ota yhteyttä</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h2>Ota yhteyttä</h2>
+        <p>Kysy alueesta, esteettömyydestä, ohjelmasta tai mistä tahansa muusta. Kaikki kentät ovat pakollisia.</p>
+
+        <p>
+        <label for="name">Nimi:</label>
+        <input type="text" id="name" name="name" required><br>
+        </p>
+        
+        <p>
+        <label for="email">Sähköposti:</label>
+        <input type="email" id="email" name="email" required><br>
+        </p>
+
+        <p>
+        <label for="message">Viesti:</label>
+        <textarea id="message" name="message" required></textarea><br>
+        </p>
+        
+        <input type="submit" value="Lähetä">
+
+        <footer class="site-footer">
+            <p><strong>Pohjanpiha Festival</strong> - Kesäfestivaali - Alavus</p>
+            <p>Kysyttävää? <a href="contact.html">Ota yhteyttä</a></p>
+        </footer>
+    </body>
+</html>
