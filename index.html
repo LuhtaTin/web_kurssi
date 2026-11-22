@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pohjanpiha Festival - Etusivu</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -20,6 +21,13 @@
                     <li><a href="contact.html">Ota yhteyttä</a></li>
                 </ul>
             </nav>
+            <div class="asetukset">
+                <button type="button" class="valikko-nappi" popovertarget="asetukset-valikko">Asetukset</button>
+                <div id="asetukset-valikko" popover role="group" aria-label="Asetukset">
+                    <button type="button" class="suodatin" id="teksti-nappi" aria-pressed="false">Suurempi teksti</button>
+                    <button type="button" class="suodatin" popovertarget="asetukset-valikko" popovertargetaction="hide">Sulje</button>
+                </div>
+            </div>
         </header>
         <main>
 

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pohjanpiha Festival - Esiintyjät</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -20,17 +21,92 @@
                     <li><a href="contact.html">Ota yhteyttä</a></li>
                 </ul>
             </nav>
+            <div class="asetukset">
+                <button type="button" class="valikko-nappi" popovertarget="asetukset-valikko">Asetukset</button>
+                <div id="asetukset-valikko" popover role="group" aria-label="Asetukset">
+                    <button type="button" class="suodatin" id="teksti-nappi" aria-pressed="false">Suurempi teksti</button>
+                    <button type="button" class="suodatin" popovertarget="asetukset-valikko" popovertargetaction="hide">Sulje</button>
+                </div>
+            </div>
         </header>
         <main>
         <h2>Esiintyjät ja aikataulu</h2>
         <p>Löydä esiintyjä, lava ja aika ja suunnittele päiväsi.</p>
 
-        <h2>Päivä 1</h2>
-        <p>Aikataulu ja esiintyjät päivälle 1.</p>
+        <div id="tyokalut" class="tyokalut" hidden>
+            <p>
+                <label for="haku">Hae esiintyjää, lavaa tai tyylilajia:</label>
+                <input type="search" id="haku" name="haku" autocomplete="off">
+            </p>
+            <fieldset class="ryhma">
+                <legend>Näytä päivä</legend>
+                <div class="napit">
+                    <button type="button" class="suodatin" data-suodata-paiva="kaikki" aria-pressed="true">Kaikki</button>
+                    <button type="button" class="suodatin" data-suodata-paiva="1" aria-pressed="false">Päivä 1</button>
+                    <button type="button" class="suodatin" data-suodata-paiva="2" aria-pressed="false">Päivä 2</button>
+                </div>
+            </fieldset>
+            <fieldset class="ryhma">
+                <legend>Järjestä</legend>
+                <div class="napit">
+                    <button type="button" class="suodatin" data-jarjesta="aika" aria-pressed="true">Ajan mukaan</button>
+                    <button type="button" class="suodatin" data-jarjesta="nimi" aria-pressed="false">Nimen mukaan</button>
+                </div>
+            </fieldset>
+        </div>
 
-        <h2>Päivä 2</h2>
-        <p>Aikataulu ja esiintyjät päivälle 2.</p>
+        <p id="tila" class="tila" role="status"></p>
 
+        <ul id="esiintyjat">
+            <li data-paiva="1" data-aika="13:00" data-nimi="Lumikello">
+                <h3>Lumikello</h3>
+                <p>Päivä 1, klo 13.00 · Aittalava · Kansanmusiikki</p>
+            </li>
+            <li data-paiva="1" data-aika="14:30" data-nimi="Heinäsirkat">
+                <h3>Heinäsirkat</h3>
+                <p>Päivä 1, klo 14.30 · Talonpihan lava · Folk</p>
+            </li>
+            <li data-paiva="1" data-aika="16:00" data-nimi="Aallonmurtajat">
+                <h3>Aallonmurtajat</h3>
+                <p>Päivä 1, klo 16.00 · Rantalava · Indie</p>
+            </li>
+            <li data-paiva="1" data-aika="17:30" data-nimi="Kaisla Rinne">
+                <h3>Kaisla Rinne</h3>
+                <p>Päivä 1, klo 17.30 · Aittalava · Laulaja-lauluntekijä</p>
+            </li>
+            <li data-paiva="1" data-aika="19:00" data-nimi="Pohjan Pojat">
+                <h3>Pohjan Pojat</h3>
+                <p>Päivä 1, klo 19.00 · Talonpihan lava · Rock</p>
+            </li>
+            <li data-paiva="1" data-aika="21:00" data-nimi="Yöaurinko">
+                <h3>Yöaurinko</h3>
+                <p>Päivä 1, klo 21.00 · Rantalava · Elektroninen</p>
+            </li>
+            <li data-paiva="2" data-aika="13:00" data-nimi="Pikkuhanhet">
+                <h3>Pikkuhanhet</h3>
+                <p>Päivä 2, klo 13.00 · Talonpihan lava · Lastenmusiikki</p>
+            </li>
+            <li data-paiva="2" data-aika="14:30" data-nimi="Saimi Koski">
+                <h3>Saimi Koski</h3>
+                <p>Päivä 2, klo 14.30 · Aittalava · Laulaja-lauluntekijä</p>
+            </li>
+            <li data-paiva="2" data-aika="16:00" data-nimi="Sinikello">
+                <h3>Sinikello</h3>
+                <p>Päivä 2, klo 16.00 · Rantalava · Pop</p>
+            </li>
+            <li data-paiva="2" data-aika="17:30" data-nimi="Kuutamokortteli">
+                <h3>Kuutamokortteli</h3>
+                <p>Päivä 2, klo 17.30 · Talonpihan lava · Jazz</p>
+            </li>
+            <li data-paiva="2" data-aika="19:00" data-nimi="Tervahaudan Tytöt">
+                <h3>Tervahaudan Tytöt</h3>
+                <p>Päivä 2, klo 19.00 · Aittalava · Kansanmusiikki</p>
+            </li>
+            <li data-paiva="2" data-aika="21:00" data-nimi="Hämärän Rajalla">
+                <h3>Hämärän Rajalla</h3>
+                <p>Päivä 2, klo 21.00 · Rantalava · Rock</p>
+            </li>
+        </ul>
         </main>
         <footer class="site-footer">
             <p><strong>Pohjanpiha Festival</strong> - Kesäfestivaali - Alavus</p>

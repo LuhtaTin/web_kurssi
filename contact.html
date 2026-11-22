@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pohjanpiha Festival - Ota yhteyttä</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -20,28 +21,41 @@
                     <li><a href="contact.html">Ota yhteyttä</a></li>
                 </ul>
             </nav>
+            <div class="asetukset">
+                <button type="button" class="valikko-nappi" popovertarget="asetukset-valikko">Asetukset</button>
+                <div id="asetukset-valikko" popover role="group" aria-label="Asetukset">
+                    <button type="button" class="suodatin" id="teksti-nappi" aria-pressed="false">Suurempi teksti</button>
+                    <button type="button" class="suodatin" popovertarget="asetukset-valikko" popovertargetaction="hide">Sulje</button>
+                </div>
+            </div>
         </header>
         <main>
         <h2>Ota yhteyttä</h2>
         <p>Kysy alueesta, esteettömyydestä, ohjelmasta tai mistä tahansa muusta. Kaikki kentät ovat pakollisia.</p>
 
-        <p>
-        <label for="name">Nimi:</label>
-        <input type="text" id="name" name="name" required><br>
-        </p>
-        
-        <p>
-        <label for="email">Sähköposti:</label>
-        <input type="email" id="email" name="email" required><br>
-        </p>
+        <form id="yhteydenotto" novalidate>
+            <p>
+                <label for="name">Nimi:</label>
+                <input type="text" id="name" name="name" required autocomplete="name" aria-describedby="name-virhe">
+                <span class="virhe" id="name-virhe"></span>
+            </p>
 
-        <p>
-        <label for="message">Viesti:</label>
-        <textarea id="message" name="message" required></textarea><br>
-        </p>
-        
-        <input type="submit" value="Lähetä">
+            <p>
+                <label for="email">Sähköposti:</label>
+                <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-virhe">
+                <span class="virhe" id="email-virhe"></span>
+            </p>
 
+            <p>
+                <label for="message">Viesti:</label>
+                <textarea id="message" name="message" required aria-describedby="message-virhe"></textarea>
+                <span class="virhe" id="message-virhe"></span>
+            </p>
+
+            <button type="submit" class="btn">Lähetä</button>
+        </form>
+
+        <p id="valmis" class="tila" role="status"></p>
         </main>
         <footer class="site-footer">
             <p><strong>Pohjanpiha Festival</strong> - Kesäfestivaali - Alavus</p>
